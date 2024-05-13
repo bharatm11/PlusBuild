@@ -315,6 +315,9 @@ OPTION(PLUS_USE_GENERIC_SENSOR_TRACKER "Provide support for generic sensor data 
 OPTION(PLUS_USE_AZUREKINECT "Provide support for Azure Kinect cameras" OFF)
 OPTION(PLUS_USE_REVOPOINT3DCAMERA "Provide support for Revopoint 3D cameras" OFF)
 
+OPTION(PLUS_USE_POLHEMUS "Provide support for the Polhemus EM Tracker" OFF)
+
+
 # ---------- Other devices ------------
 OPTION(PLUS_USE_TextRecognizer "Enable the text recognizer virtual device" OFF)
 
@@ -386,7 +389,7 @@ ENDIF()
 #-----------------------------------------------------------------------------
 # Plus revision - Set Plus stable relase revision (master means latest)
 #-----------------------------------------------------------------------------
-SET(PLUSLIB_GIT_REPOSITORY "https://github.com/PlusToolkit/PlusLib.git" CACHE STRING "Set PlusLib desired git url")
+SET(PLUSLIB_GIT_REPOSITORY "https://github.com/bharatm11/PlusLib.git" CACHE STRING "Set PlusLib desired git url")
 MARK_AS_ADVANCED(PLUSLIB_GIT_REPOSITORY)
 SET(PLUSLIB_GIT_REVISION "master" CACHE STRING "Set PlusLib desired git hash (master means latest)")
 MARK_AS_ADVANCED(PLUSLIB_GIT_REVISION)
@@ -397,7 +400,7 @@ SET(PLUSAPP_GIT_REVISION "master" CACHE STRING "Set PlusApp desired git hash (ma
 MARK_AS_ADVANCED(PLUSAPP_GIT_REVISION)
 
 IF(PLUSBUILD_DOWNLOAD_PLUSLIBDATA)
-  SET(PLUSBUILD_PLUSLIBDATA_GIT_REPOSITORY "https://github.com/PlusToolkit/PlusLibData.git" CACHE STRING "Set PlusLibData desired git url.")
+  SET(PLUSBUILD_PLUSLIBDATA_GIT_REPOSITORY "https://github.com/bharatm11/PlusLibData.git" CACHE STRING "Set PlusLibData desired git url.")
   MARK_AS_ADVANCED(PLUSBUILD_PLUSLIBDATA_GIT_REPOSITORY)
   SET(PLUSBUILD_PLUSLIBDATA_GIT_REVISION "master" CACHE STRING "Set PlusLibData desired git hash (master means latest).")
   MARK_AS_ADVANCED(PLUSBUILD_PLUSLIBDATA_GIT_REVISION)
@@ -597,6 +600,11 @@ ENDIF()
 IF(PLUS_USE_INFRARED_SEEK_CAM)
   INCLUDE(SuperBuild/External_libusb.cmake)
   INCLUDE(SuperBuild/External_InfraredSeekCam.cmake)
+ENDIF()
+
+# Polhemus EM Tracker dependency
+IF(PLUS_USE_POLHEMUS)
+  INCLUDE(SuperBuild/External_libusb.cmake)
 ENDIF()
 
 # ArUco dependency
