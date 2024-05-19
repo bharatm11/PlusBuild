@@ -10,6 +10,8 @@ This project contains CMake scripts for building Plus library, applications, and
 ## Issues
 Submit issues [here](https://github.com/PlusToolkit/PlusLib/issues).
 
+
+#Linux
 git clone https://github.com/bharatm11/PlusBuild.git
 
 mkdir PlusBuild-bin
@@ -20,7 +22,7 @@ cmake ../PlusBuild -DCMAKE_BUILD_TYPE=Release -DPLUS_USE_V4L2=ON -DPLUS_USE_POLH
 
 make
 
-
+#Windows
 git clone https://github.com/bharatm11/PlusBuild.git
 
 mkdir PlusBuild-bin
