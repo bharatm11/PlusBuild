@@ -31,4 +31,4 @@ cd PlusBuild
 
 cmake -S . -B C:\D\PlusB-bin -G "Visual Studio 17 2022" -DQt5_DIR:PATH="C:\Qt\Qt5.12.12\5.12.12\msvc2017_64\lib\cmake\Qt5" -DPLUS_USE_EPIPHAN=ON -DPLUS_USE_POLHEMUS=ON
 
-build on vscode
+build on visual studio
